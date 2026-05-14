@@ -1,4 +1,13 @@
-import { Truck, Container, Forklift, MapPin, type LucideIcon } from "lucide-react";
+import {
+  Truck,
+  Container,
+  Forklift,
+  MapPin,
+  Car,
+  type LucideIcon,
+} from "lucide-react";
+
+export type AppCategory = "Vehículos" | "Mapas" | "Seguridad";
 
 export type AppLink = {
   title: string;
@@ -6,15 +15,31 @@ export type AppLink = {
   href: string;
   icon: LucideIcon;
   color: string;
+  glow: string;
+  category: AppCategory;
+  code: string;
 };
 
 export const apps: AppLink[] = [
+  {
+    title: "Inspección de Vehículos",
+    description: "Inspección POSGI001-A1-2",
+    href: "https://apu242007.github.io/POSGI001-A1-2-Inspeccion-de-Vehiculos/",
+    icon: Car,
+    color: "text-red-400",
+    glow: "shadow-red-500/30",
+    category: "Vehículos",
+    code: "POSGI-001-A1-2",
+  },
   {
     title: "Check List Carretón",
     description: "Inspección PO-SGI-007-A8",
     href: "https://apu242007.github.io/PO-SGI-007-A8-Check-List-Carreton/",
     icon: Truck,
     color: "text-orange-400",
+    glow: "shadow-orange-500/30",
+    category: "Vehículos",
+    code: "PO-SGI-007-A8",
   },
   {
     title: "Check List Semi-Remolque",
@@ -22,6 +47,9 @@ export const apps: AppLink[] = [
     href: "https://apu242007.github.io/PO-SGI-001-A24-Check-List-Semi-Remolque/",
     icon: Container,
     color: "text-blue-400",
+    glow: "shadow-blue-500/30",
+    category: "Vehículos",
+    code: "PO-SGI-001-A24",
   },
   {
     title: "Check List Montacargas",
@@ -29,6 +57,9 @@ export const apps: AppLink[] = [
     href: "https://apu242007.github.io/POSGI001-A20-0-Check-List-Montacargas/",
     icon: Forklift,
     color: "text-yellow-400",
+    glow: "shadow-yellow-500/30",
+    category: "Vehículos",
+    code: "POSGI-001-A20",
   },
   {
     title: "Zonificación de Velocidades",
@@ -36,5 +67,10 @@ export const apps: AppLink[] = [
     href: "https://apu242007.github.io/tacker-zonificacion-velocidades/",
     icon: MapPin,
     color: "text-green-400",
+    glow: "shadow-green-500/30",
+    category: "Mapas",
+    code: "TACKER-ZV",
   },
 ];
+
+export const categories: AppCategory[] = ["Vehículos", "Mapas", "Seguridad"];

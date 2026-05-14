@@ -4,18 +4,34 @@
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 24 95% 53%;
+    --brand: 24 95% 53%;
+    --radius: 0.875rem;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 13%;
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 13%;
+    --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
     --muted: 217 33% 17%;
     --muted-foreground: 215 20% 65%;
     --border: 217 33% 20%;
     --input: 217 33% 20%;
-    --ring: 217 91% 60%;
-    --radius: 0.75rem;
+    --ring: 24 95% 53%;
+    --brand: 24 95% 53%;
   }
 }
 
@@ -23,8 +39,149 @@
   * {
     @apply border-border;
   }
+  html {
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image:
+      radial-gradient(
+        circle at 15% 10%,
+        hsl(var(--brand) / 0.08),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 85% 90%,
+        hsl(217 91% 60% / 0.07),
+        transparent 50%
+      );
   }
+  .dark body {
+    background-image:
+      radial-gradient(
+        circle at 15% 10%,
+        hsl(var(--brand) / 0.12),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 85% 90%,
+        hsl(217 91% 60% / 0.1),
+        transparent 50%
+      );
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(
+      ellipse at center,
+      black 30%,
+      transparent 75%
+    );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass {
+    @apply bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl backdrop-saturate-150 border border-white/40 dark:border-white/10;
+  }
+
+  .glass-strong {
+    @apply bg-white/80 dark:bg-slate-900/60 backdrop-blur-2xl backdrop-saturate-150 border border-white/50 dark:border-white/10;
+  }
+}
+
+@keyframes orb-float-a {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(40px, -30px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 25px) scale(0.95);
+  }
+}
+
+@keyframes orb-float-b {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-50px, 40px) scale(1.1);
+  }
+}
+
+@keyframes orb-float-c {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -40px) scale(0.9);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.4);
+  }
+}
+
+.animate-orb-a {
+  animation: orb-float-a 18s ease-in-out infinite;
+}
+.animate-orb-b {
+  animation: orb-float-b 22s ease-in-out infinite;
+}
+.animate-orb-c {
+  animation: orb-float-c 26s ease-in-out infinite;
+}
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.21, 0.61, 0.35, 1) both;
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--brand) / 0.15),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
 }
