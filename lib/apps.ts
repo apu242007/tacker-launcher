@@ -1,19 +1,10 @@
-import {
-  Truck,
-  Container,
-  Forklift,
-  MapPin,
-  Car,
-  type LucideIcon,
-} from "lucide-react";
-
 export type AppCategory = "Vehículos" | "Mapas" | "Seguridad";
 
 export type AppLink = {
   title: string;
   description: string;
   href: string;
-  icon: LucideIcon;
+  image: string;
   color: string;
   glow: string;
   category: AppCategory;
@@ -25,7 +16,7 @@ export const apps: AppLink[] = [
     title: "Inspección de Vehículos",
     description: "Inspección POSGI001-A1-2",
     href: "https://apu242007.github.io/POSGI001-A1-2-Inspeccion-de-Vehiculos/",
-    icon: Car,
+    image: "/icons/icon-vehiculos.png",
     color: "text-red-400",
     glow: "shadow-red-500/30",
     category: "Vehículos",
@@ -35,7 +26,7 @@ export const apps: AppLink[] = [
     title: "Check List Carretón",
     description: "Inspección PO-SGI-007-A8",
     href: "https://apu242007.github.io/PO-SGI-007-A8-Check-List-Carreton/",
-    icon: Truck,
+    image: "/icons/icon-carreton.png",
     color: "text-orange-400",
     glow: "shadow-orange-500/30",
     category: "Vehículos",
@@ -45,7 +36,7 @@ export const apps: AppLink[] = [
     title: "Check List Semi-Remolque",
     description: "Inspección PO-SGI-001-A24",
     href: "https://apu242007.github.io/PO-SGI-001-A24-Check-List-Semi-Remolque/",
-    icon: Container,
+    image: "/icons/icon-semiremolque.png",
     color: "text-blue-400",
     glow: "shadow-blue-500/30",
     category: "Vehículos",
@@ -55,7 +46,7 @@ export const apps: AppLink[] = [
     title: "Check List Montacargas",
     description: "Inspección POSGI001-A20",
     href: "https://apu242007.github.io/POSGI001-A20-0-Check-List-Montacargas/",
-    icon: Forklift,
+    image: "/icons/icon-montacargas.png",
     color: "text-yellow-400",
     glow: "shadow-yellow-500/30",
     category: "Vehículos",
@@ -65,7 +56,7 @@ export const apps: AppLink[] = [
     title: "Zonificación de Velocidades",
     description: "Mapa de zonas y límites",
     href: "https://apu242007.github.io/tacker-zonificacion-velocidades/",
-    icon: MapPin,
+    image: "/icons/icon-zonificacion.png",
     color: "text-green-400",
     glow: "shadow-green-500/30",
     category: "Mapas",
