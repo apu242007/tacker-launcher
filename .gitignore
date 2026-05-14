@@ -35,3 +35,4 @@ next-env.d.ts.bak
 
 # source art (copies live in public/icons)
 /ChatGPT Image*.png
+/*ChatGPT Image*.png

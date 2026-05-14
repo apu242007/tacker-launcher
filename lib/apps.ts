@@ -62,6 +62,26 @@ export const apps: AppLink[] = [
     category: "Mapas",
     code: "TACKER-ZV",
   },
+  {
+    title: "Gestión de Hallazgos",
+    description: "Reporte de hallazgos y observaciones",
+    href: "https://forms.cloud.microsoft/r/mStRYQUQkC",
+    image: "/icons/icon-hallazgos.png",
+    color: "text-rose-400",
+    glow: "shadow-rose-500/30",
+    category: "Vehículos",
+    code: "GESTIÓN-HALLAZGOS",
+  },
+  {
+    title: "Mapa de Pozos en Neuquén",
+    description: "Portal GIS de hidrocarburos",
+    href: "https://hidrocarburos.energianeuquen.gob.ar/portalgis/web/",
+    image: "/icons/icon-pozos.png",
+    color: "text-sky-400",
+    glow: "shadow-sky-500/30",
+    category: "Mapas",
+    code: "GIS-NEUQUÉN",
+  },
 ];
 
 export const categories: AppCategory[] = ["Vehículos", "Mapas", "Seguridad"];
