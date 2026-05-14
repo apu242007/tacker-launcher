@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   Tooltip,
   TooltipContent,
@@ -9,6 +8,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { ArrowUpRight } from "lucide-react";
 import type { AppLink } from "@/lib/apps";
+import { asset } from "@/lib/basePath";
 import { cn } from "@/lib/utils";
 
 export function AppCard({ app, index = 0 }: { app: AppLink; index?: number }) {
@@ -54,11 +54,13 @@ export function AppCard({ app, index = 0 }: { app: AppLink; index?: number }) {
 
             <div className="relative flex flex-col gap-5">
               <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-background to-muted ring-1 ring-border/60 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                <Image
-                  src={app.image}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={asset(app.image)}
                   alt={app.title}
                   width={64}
                   height={64}
+                  loading="lazy"
                   className="h-16 w-16 object-contain drop-shadow-sm"
                 />
               </div>
